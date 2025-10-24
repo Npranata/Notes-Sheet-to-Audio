@@ -97,7 +97,9 @@ def splitData():
     copyFiles(trainFiles, "train")
     copyFiles(valFiles, "val")
 
+
+#Convert and split data
 convertJsonToYolo()
-# splitData()
+splitData()
 
 

@@ -77,29 +77,29 @@ def splitData():
     img_dir = "Dataset/ds2_dense/images"
     yoloLabel_dir = "Dataset/yolo_labels"
     for newDir in ["train", "val"]:
-        os.makedirs(f"Dataset/split_images/{newDir}", exist_ok=True)
-        os.makedirs(f"Dataset/split_yolo_labels/{newDir}", exist_ok=True)
+        os.makedirs(f"Dataset/images/{newDir}", exist_ok=True)
+        os.makedirs(f"Dataset/labels/{newDir}", exist_ok=True)
     yoloFiles = [y for y in os.listdir(yoloLabel_dir) if y.endswith(".txt")]
     trainFiles, valFiles = train_test_split(yoloFiles, train_size=0.8, random_state=42)
     def copyFiles(files, subsetFile):
         for file in files:
             # Copy yolo label files into a new folder that splits them into training and validation files.
             label_src = os.path.join(yoloLabel_dir, file)
-            label_dst = os.path.join(f"Dataset/split_yolo_labels/{subsetFile}", file)
+            label_dst = os.path.join(f"Dataset/labels/{subsetFile}", file)
             shutil.copy(label_src, label_dst)
 
             #Copy Image files into a new folder that splits them into training and validation files.
             img_name = os.path.splitext(file)[0]
             img_src = os.path.join(img_dir, img_name + ".png")
             if os.path.exists(img_src):
-                img_dst = os.path.join(f"Dataset/split_images/{subsetFile}", img_name + ".png")
+                img_dst = os.path.join(f"Dataset/images/{subsetFile}", img_name + ".png")
                 shutil.copy(img_src, img_dst)
     copyFiles(trainFiles, "train")
     copyFiles(valFiles, "val")
 
 
 #Convert and split data
-convertJsonToYolo()
+# convertJsonToYolo()
 splitData()
 
 

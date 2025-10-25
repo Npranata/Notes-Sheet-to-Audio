@@ -1,4 +1,4 @@
 Dataset/ds2_dense
-Dataset/split_images
-Dataset/split_yolo_labels
+Dataset/images
+Dataset/labels
 Dataset/yolo_labels

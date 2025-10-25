@@ -1,7 +1,7 @@
 path: Dataset
 
-train: split_images/train
-val: split_images/val
+train: images/train
+val: images/val
 
 labels:
   train: split_yolo_labels/train

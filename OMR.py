@@ -99,7 +99,7 @@ def splitData():
 
 
 #Convert and split data
-# convertJsonToYolo()
+convertJsonToYolo()
 splitData()
 
 

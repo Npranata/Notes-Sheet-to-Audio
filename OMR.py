@@ -62,7 +62,7 @@ def convertJsonToYolo():
                     if categoryId is None or (isinstance(categoryId, list) and None in categoryId):
                         continue
                     if isinstance(categoryId, list):
-                        categoryId = categoryId[0]
+                        categoryId = int(categoryId[0]) - 1 #YOLO uses 0-based indexing
 
                     # Convert a_bbox(bounding box) to YOLO format
                     x_center, y_center, bboxWidth, bboxHeight = convertBoundingBox(bbox, imgWidth, imgHeight)
@@ -101,5 +101,3 @@ def splitData():
 #Convert and split data
 convertJsonToYolo()
 splitData()
-
-

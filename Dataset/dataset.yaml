@@ -3,42 +3,142 @@ path: Dataset
 train: images/train
 val: images/val
 
-labels:
-  train: split_yolo_labels/train
-  val: split_yolo_labels/val
-
-nc: 168
+nc: 136
 
 names:
-  [
-    'accidentalDoubleFlat', 'accidentalDoubleSharp', 'accidentalFlat', 'accidentalFlatSmall',
-    'accidentalNatural', 'accidentalNaturalSmall', 'accidentalSharp', 'accidentalSharpSmall',
-    'arpeggiato', 'arpeggio', 'articAccentAbove', 'articAccentBelow', 'articMarcatoAbove',
-    'articMarcatoBelow', 'articStaccatissimoAbove', 'articStaccatissimoBelow', 'articStaccatoAbove',
-    'articStaccatoBelow', 'articTenutoAbove', 'articTenutoBelow', 'articulationAccent',
-    'articulationMarcatoAbove', 'articulationMarcatoBelow', 'articulationStaccato', 'articulationTenuto',
-    'augmentationDot', 'beam', 'brace', 'caesura', 'clef15', 'clef8', 'clefC', 'clefCAlto', 'clefCTenor',
-    'clefF', 'clefG', 'clefUnpitchedPercussion', 'coda', 'dynamicCrescendoHairpin',
-    'dynamicDiminuendoHairpin', 'dynamicF', 'dynamicLetterF', 'dynamicLetterM', 'dynamicLetterP',
-    'dynamicLetterR', 'dynamicLetterS', 'dynamicLetterZ', 'dynamicM', 'dynamicP', 'dynamicR', 'dynamicS',
-    'dynamicZ', 'fermataAbove', 'fermataBelow', 'fingering0', 'fingering1', 'fingering2', 'fingering3',
-    'fingering4', 'fingering5', 'flag128thDown', 'flag128thUp', 'flag16thDown', 'flag16thUp',
-    'flag32ndDown', 'flag32ndUp', 'flag64thDown', 'flag64thUp', 'flag8thDown', 'flag8thDownSmall',
-    'flag8thUp', 'flag8thUpSmall', 'graceNoteAcciaccatura', 'graceNoteAcciaccaturaStemDown',
-    'graceNoteAcciaccaturaStemUp', 'graceNoteAppoggiaturaStemDown', 'graceNoteAppoggiaturaStemUp',
-    'keyFlat', 'keyNatural', 'keySharp', 'keyboardPedalPed', 'keyboardPedalUp', 'ledgerLine', 'legerLine',
-    'noteheadBlackInSpace', 'noteheadBlackInSpaceSmall', 'noteheadBlackOnLine', 'noteheadBlackOnLineSmall',
-    'noteheadDoubleWholeInSpace', 'noteheadDoubleWholeInSpaceSmall', 'noteheadDoubleWholeOnLine',
-    'noteheadDoubleWholeOnLineSmall', 'noteheadFullSmall', 'noteheadHalfInSpace', 'noteheadHalfInSpaceSmall',
-    'noteheadHalfOnLine', 'noteheadHalfOnLineSmall', 'noteheadHalfSmall', 'noteheadWhole',
-    'noteheadWholeInSpace', 'noteheadWholeInSpaceSmall', 'noteheadWholeOnLine', 'noteheadWholeOnLineSmall',
-    'numeral', 'numeral0', 'numeral1', 'numeral2', 'numeral3', 'numeral4', 'numeral5', 'numeral6',
-    'numeral7', 'numeral8', 'numeral9', 'ornamentMordent', 'ornamentTrill', 'ornamentTurn',
-    'ornamentTurnInverted', 'ottavaBracket', 'repeatDot', 'rest128th', 'rest16th', 'rest32nd', 'rest64th',
-    'rest8th', 'restDoubleWhole', 'restHBar', 'restHNr', 'restHalf', 'restQuarter', 'restWhole', 'segno',
-    'slur', 'staff', 'stem', 'stringsDownBow', 'stringsUpBow', 'tie', 'timeSig0', 'timeSig1', 'timeSig2',
-    'timeSig3', 'timeSig4', 'timeSig5', 'timeSig6', 'timeSig7', 'timeSig8', 'timeSig9', 'timeSigCommon',
-    'timeSigCutCommon', 'tremolo1', 'tremolo2', 'tremolo3', 'tremolo4', 'tremolo5', 'tremoloMark', 'tuple',
-    'tupleBracket', 'tuplet1', 'tuplet2', 'tuplet3', 'tuplet4', 'tuplet5', 'tuplet6', 'tuplet7', 'tuplet8',
-    'tuplet9', 'tupletBracket'
-  ]
+  - 'brace'
+  - 'ledgerLine'
+  - 'repeatDot'
+  - 'segno'
+  - 'coda'
+  - 'clefG'
+  - 'clefCAlto'
+  - 'clefCTenor'
+  - 'clefF'
+  - 'clefUnpitchedPercussion'
+  - 'clef8'
+  - 'clef15'
+  - 'timeSig0'
+  - 'timeSig1'
+  - 'timeSig2'
+  - 'timeSig3'
+  - 'timeSig4'
+  - 'timeSig5'
+  - 'timeSig6'
+  - 'timeSig7'
+  - 'timeSig8'
+  - 'timeSig9'
+  - 'timeSigCommon'
+  - 'timeSigCutCommon'
+  - 'noteheadBlackOnLine'
+  - 'noteheadBlackOnLineSmall'
+  - 'noteheadBlackInSpace'
+  - 'noteheadBlackInSpaceSmall'
+  - 'noteheadHalfOnLine'
+  - 'noteheadHalfOnLineSmall'
+  - 'noteheadHalfInSpace'
+  - 'noteheadHalfInSpaceSmall'
+  - 'noteheadWholeOnLine'
+  - 'noteheadWholeOnLineSmall'
+  - 'noteheadWholeInSpace'
+  - 'noteheadWholeInSpaceSmall'
+  - 'noteheadDoubleWholeOnLine'
+  - 'noteheadDoubleWholeOnLineSmall'
+  - 'noteheadDoubleWholeInSpace'
+  - 'noteheadDoubleWholeInSpaceSmall'
+  - 'augmentationDot'
+  - 'stem'
+  - 'tremolo1'
+  - 'tremolo2'
+  - 'tremolo3'
+  - 'tremolo4'
+  - 'tremolo5'
+  - 'flag8thUp'
+  - 'flag8thUpSmall'
+  - 'flag16thUp'
+  - 'flag32ndUp'
+  - 'flag64thUp'
+  - 'flag128thUp'
+  - 'flag8thDown'
+  - 'flag8thDownSmall'
+  - 'flag16thDown'
+  - 'flag32ndDown'
+  - 'flag64thDown'
+  - 'flag128thDown'
+  - 'accidentalFlat'
+  - 'accidentalFlatSmall'
+  - 'accidentalNatural'
+  - 'accidentalNaturalSmall'
+  - 'accidentalSharp'
+  - 'accidentalSharpSmall'
+  - 'accidentalDoubleSharp'
+  - 'accidentalDoubleFlat'
+  - 'keyFlat'
+  - 'keyNatural'
+  - 'keySharp'
+  - 'articAccentAbove'
+  - 'articAccentBelow'
+  - 'articStaccatoAbove'
+  - 'articStaccatoBelow'
+  - 'articTenutoAbove'
+  - 'articTenutoBelow'
+  - 'articStaccatissimoAbove'
+  - 'articStaccatissimoBelow'
+  - 'articMarcatoAbove'
+  - 'articMarcatoBelow'
+  - 'fermataAbove'
+  - 'fermataBelow'
+  - 'caesura'
+  - 'restDoubleWhole'
+  - 'restWhole'
+  - 'restHalf'
+  - 'restQuarter'
+  - 'rest8th'
+  - 'rest16th'
+  - 'rest32nd'
+  - 'rest64th'
+  - 'rest128th'
+  - 'restHNr'
+  - 'dynamicP'
+  - 'dynamicM'
+  - 'dynamicF'
+  - 'dynamicS'
+  - 'dynamicZ'
+  - 'dynamicR'
+  - 'graceNoteAcciaccaturaStemUp'
+  - 'graceNoteAppoggiaturaStemUp'
+  - 'graceNoteAcciaccaturaStemDown'
+  - 'graceNoteAppoggiaturaStemDown'
+  - 'ornamentTrill'
+  - 'ornamentTurn'
+  - 'ornamentTurnInverted'
+  - 'ornamentMordent'
+  - 'stringsDownBow'
+  - 'stringsUpBow'
+  - 'arpeggiato'
+  - 'keyboardPedalPed'
+  - 'keyboardPedalUp'
+  - 'tuplet3'
+  - 'tuplet6'
+  - 'fingering0'
+  - 'fingering1'
+  - 'fingering2'
+  - 'fingering3'
+  - 'fingering4'
+  - 'fingering5'
+  - 'slur'
+  - 'beam'
+  - 'tie'
+  - 'restHBar'
+  - 'dynamicCrescendoHairpin'
+  - 'dynamicDiminuendoHairpin'
+  - 'tuplet1'
+  - 'tuplet2'
+  - 'tuplet4'
+  - 'tuplet5'
+  - 'tuplet7'
+  - 'tuplet8'
+  - 'tuplet9'
+  - 'tupletBracket'
+  - 'staff'
+  - 'ottavaBracket'

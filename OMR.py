@@ -1,7 +1,7 @@
 import json
 import shutil
 
-import cv2
+# import cv2
 import os
 from sklearn.model_selection import train_test_split
 

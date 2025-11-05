@@ -1,3 +1,8 @@
+path: Dataset
+
+train: train/images
+val: val/images
+nc: 49
 names:
 - clefG
 - clefF
@@ -48,7 +53,5 @@ names:
 - timeSigCommon
 - timeSigCutCommon
 - slur
-nc: 49
-path: Dataset
-train: train/images
-val: val/images
+
+

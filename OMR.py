@@ -152,10 +152,10 @@ def write_new_yaml():
 
 
 # ========= RUN ALL STEPS =========
-# convert_json_to_yolo()
-# filter_labels()
-# split_data()
-# write_new_yaml()
+convert_json_to_yolo()
+filter_labels()
+split_data()
+write_new_yaml()
 
 import cv2
 import os

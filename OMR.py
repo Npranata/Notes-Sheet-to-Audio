@@ -157,37 +157,37 @@ filter_labels()
 split_data()
 write_new_yaml()
 
-import cv2
-import os
-from matplotlib import pyplot as plt
+# import cv2
+# import os
+# from matplotlib import pyplot as plt
 
-# Update these paths
-img_dir = "Dataset/train/images"
-label_dir = "Dataset/train/labels"
+# # Update these paths
+# img_dir = "Dataset/train/images"
+# label_dir = "Dataset/train/labels"
 
-# List all images
-images = [f for f in os.listdir(img_dir) if f.endswith(('.png'))]
+# # List all images
+# images = [f for f in os.listdir(img_dir) if f.endswith(('.png'))]
 
-# Pick a random one to test
-img_path = os.path.join(img_dir, images[0])
-label_path = os.path.join(label_dir, images[0].replace('.png', '.txt').replace('.jpg', '.txt'))
+# # Pick a random one to test
+# img_path = os.path.join(img_dir, images[0])
+# label_path = os.path.join(label_dir, images[0].replace('.png', '.txt').replace('.jpg', '.txt'))
 
-# Load image
-img = cv2.imread(img_path)
-h, w, _ = img.shape
+# # Load image
+# img = cv2.imread(img_path)
+# h, w, _ = img.shape
 
-# Draw boxes
-with open(label_path, "r") as f:
-    for line in f:
-        cls, x, y, bw, bh = map(float, line.strip().split())
-        x1 = int((x - bw/2) * w)
-        y1 = int((y - bh/2) * h)
-        x2 = int((x + bw/2) * w)
-        y2 = int((y + bh/2) * h)
-        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv2.putText(img, str(int(cls)), (x1, y1-5), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0,255,0), 1)
+# # Draw boxes
+# with open(label_path, "r") as f:
+#     for line in f:
+#         cls, x, y, bw, bh = map(float, line.strip().split())
+#         x1 = int((x - bw/2) * w)
+#         y1 = int((y - bh/2) * h)
+#         x2 = int((x + bw/2) * w)
+#         y2 = int((y + bh/2) * h)
+#         cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+#         cv2.putText(img, str(int(cls)), (x1, y1-5), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0,255,0), 1)
 
-plt.figure(figsize=(10,10))
-plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-plt.axis("off")
-plt.show()
+# plt.figure(figsize=(10,10))
+# plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+# plt.axis("off")
+# plt.show()

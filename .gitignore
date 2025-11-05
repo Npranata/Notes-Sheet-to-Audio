@@ -1,4 +1,6 @@
 Dataset/ds2_dense
 Dataset/images
 Dataset/labels
+Dataset/labels_filtered
 Dataset/yolo_labels
+Dataset/yolo_labels_filtered

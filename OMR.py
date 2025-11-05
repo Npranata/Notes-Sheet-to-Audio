@@ -78,14 +78,14 @@ def splitData():
     yoloLabel_dir = "Dataset/yolo_labels"
     for newDir in ["train", "val"]:
         os.makedirs(f"Dataset/images/{newDir}", exist_ok=True)
-        os.makedirs(f"Dataset/labels/{newDir}", exist_ok=True)
+        os.makedirs(f"Dataset/labels_filtered/{newDir}", exist_ok=True)
     yoloFiles = [y for y in os.listdir(yoloLabel_dir) if y.endswith(".txt")]
     trainFiles, valFiles = train_test_split(yoloFiles, train_size=0.8, random_state=42)
     def copyFiles(files, subsetFile):
         for file in files:
             # Copy yolo label files into a new folder that splits them into training and validation files.
             label_src = os.path.join(yoloLabel_dir, file)
-            label_dst = os.path.join(f"Dataset/labels/{subsetFile}", file)
+            label_dst = os.path.join(f"Dataset/labels_filtered/{subsetFile}", file)
             shutil.copy(label_src, label_dst)
 
             #Copy Image files into a new folder that splits them into training and validation files.
@@ -99,5 +99,74 @@ def splitData():
 
 
 #Convert and split data
-convertJsonToYolo()
-splitData()
+# convertJsonToYolo()
+# splitData()
+
+
+# import os
+# import yaml
+
+# # === CONFIG ===
+# LABELS_DIR = "Dataset/yolo_labels"     # folder where YOLO .txt files are now
+# OUTPUT_DIR = "Dataset/yolo_labels_filtered"  # folder to save filtered labels
+# DATASET_YAML = "Dataset/dataset.yaml"          # your dataset.yaml path
+
+# # === STEP 1: Load class names from dataset.yaml ===
+# with open(DATASET_YAML, "r") as f:
+#     data = yaml.safe_load(f)
+# all_classes = data["names"]
+
+# # === STEP 2: Choose which classes to keep ===
+# KEEP_CLASSES = [
+#     "clefG", "clefF", "clefCAlto", "clefCTenor",
+#     "noteheadBlackOnLine", "noteheadBlackInSpace",
+#     "noteheadHalfOnLine", "noteheadHalfInSpace",
+#     "noteheadWholeOnLine", "noteheadWholeInSpace",
+#     "ledgerLine",
+#     "stem", "flag8thUp", "flag8thDown", "flag16thUp", "flag16thDown",
+#     "flag32ndUp", "flag32ndDown", "augmentationDot", "tie", "beam",
+#     "restWhole", "restHalf", "restQuarter", "rest8th",
+#     "rest16th", "rest32nd", "rest64th",
+#     "accidentalSharp", "accidentalFlat", "accidentalNatural",
+#     "keySharp", "keyFlat", "keyNatural",
+#     "staff", "brace",
+#     "timeSig0", "timeSig1", "timeSig2", "timeSig3", "timeSig4",
+#     "timeSig5", "timeSig6", "timeSig7", "timeSig8", "timeSig9",
+#     "timeSigCommon", "timeSigCutCommon",
+#     "slur"
+# ]
+
+# # === STEP 3: Find their class IDs ===
+# keep_ids = {i for i, name in enumerate(all_classes) if name in KEEP_CLASSES}
+# print(f"Keeping {len(keep_ids)} of {len(all_classes)} classes")
+
+# # === STEP 4: Filter label files ===
+# os.makedirs(OUTPUT_DIR, exist_ok=True)
+# kept, removed = 0, 0
+
+# for fname in os.listdir(LABELS_DIR):
+#     if not fname.endswith(".txt"):
+#         continue
+
+#     in_path = os.path.join(LABELS_DIR, fname)
+#     out_path = os.path.join(OUTPUT_DIR, fname)
+
+#     with open(in_path, "r") as fin:
+#         lines = fin.readlines()
+
+#     new_lines = []
+#     for line in lines:
+#         if not line.strip():
+#             continue
+#         class_id = int(line.split()[0])
+#         if class_id in keep_ids:
+#             new_lines.append(line)
+#             kept += 1
+#         else:
+#             removed += 1
+
+#     if new_lines:
+#         with open(out_path, "w") as fout:
+#             fout.writelines(new_lines)
+
+# print(f"✅ Done. Kept {kept} boxes, removed {removed}. Filtered labels saved to {OUTPUT_DIR}")

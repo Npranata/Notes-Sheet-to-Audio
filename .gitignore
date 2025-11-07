@@ -1,7 +1,8 @@
 Dataset/ds2_dense
 Dataset/images
+
 Dataset/train
 Dataset/val
-Dataset/labels_filtered
 Dataset/yolo_labels
-Dataset/yolo_labels_filtered
+
+__pycache__/

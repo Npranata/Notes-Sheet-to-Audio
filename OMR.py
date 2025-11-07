@@ -74,6 +74,7 @@ def convert_json_to_yolo():
     print("✅ Converted JSON → YOLO labels.")
 
 
+<<<<<<< HEAD
 # ========= Filter classes =========
 def filter_labels():
     # Load original class names from dataset.yaml
@@ -127,6 +128,22 @@ def split_data():
             img_name = os.path.splitext(f)[0] + ".png"
             img_src = os.path.join(IMG_DIR, img_name)
             label_src = os.path.join(FILTERED_DIR, f)
+=======
+def splitData():
+    img_dir = "Dataset/ds2_dense/images"
+    yoloLabel_dir = "Dataset/yolo_labels"
+    for newDir in ["train", "val"]:
+        os.makedirs(f"Dataset/images/{newDir}", exist_ok=True)
+        os.makedirs(f"Dataset/labels/{newDir}", exist_ok=True)
+    yoloFiles = [y for y in os.listdir(yoloLabel_dir) if y.endswith(".txt")]
+    trainFiles, valFiles = train_test_split(yoloFiles, train_size=0.8, random_state=42)
+    def copyFiles(files, subsetFile):
+        for file in files:
+            # Copy yolo label files into a new folder that splits them into training and validation files.
+            label_src = os.path.join(yoloLabel_dir, file)
+            label_dst = os.path.join(f"Dataset/labels/{subsetFile}", file)
+            shutil.copy(label_src, label_dst)
+>>>>>>> parent of 112d3bc (add temporary filtering script to see if it can fix training  issue)
 
             if os.path.exists(img_src):
                 shutil.copy(img_src, f"Dataset/{subset}/images/{img_name}")
@@ -137,6 +154,7 @@ def split_data():
     print("✅ Split into train/val folders.")
 
 
+<<<<<<< HEAD
 #  Write new dataset.yaml 
 def write_new_yaml():
     new_yaml = {
@@ -191,3 +209,8 @@ write_new_yaml()
 # plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 # plt.axis("off")
 # plt.show()
+=======
+#Convert and split data
+convertJsonToYolo()
+splitData()
+>>>>>>> parent of 112d3bc (add temporary filtering script to see if it can fix training  issue)

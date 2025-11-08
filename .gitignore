@@ -3,6 +3,7 @@ Dataset/images
 
 Dataset/train
 Dataset/val
+Dataset/labels
 Dataset/yolo_labels
 
 __pycache__/

@@ -1,7 +1,7 @@
 path: Dataset
 
-train: images/train
-val: images/val
+train: /content/drive/MyDrive/Notes-Sheet-to-Audio/Dataset/images/train
+val:   /content/drive/MyDrive/Notes-Sheet-to-Audio/Dataset/images/val
 
 nc: 136
 
